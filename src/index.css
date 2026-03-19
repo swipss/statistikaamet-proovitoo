@@ -1,0 +1,185 @@
+@import "tailwindcss";
+
+:root {
+  --color-primary: #0f172a;
+  --color-secondary: #334155;
+  --color-accent: #2563eb;
+  --color-background: #ffffff;
+  --color-surface: #f8fafc;
+  --color-text: #0f172a;
+  --color-text-muted: #64748b;
+
+  --font-sans: "Roboto", sans-serif;
+  --font-heading: "Roboto", sans-serif;
+
+  --sans: system-ui, "Segoe UI", Roboto, sans-serif;
+  --heading: system-ui, "Segoe UI", Roboto, sans-serif;
+  --mono: ui-monospace, Consolas, monospace;
+
+  font: 18px/145% var(--sans);
+  letter-spacing: 0.18px;
+  color-scheme: light dark;
+  color: var(--text);
+  background: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  @media (max-width: 1024px) {
+    font-size: 16px;
+  }
+}
+
+@layer components {
+  .text-display {
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-size: 3.5rem;
+    line-height: 1.1;
+  }
+
+  .text-headline-lg {
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-size: 2.5rem;
+    line-height: 1.2;
+  }
+
+  .text-headline-md {
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-size: 2rem;
+    line-height: 1.25;
+  }
+
+  .text-headline-sm {
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    line-height: 1.3;
+  }
+
+  .text-title-lg {
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-size: 1.25rem;
+    line-height: 1.4;
+  }
+
+  .text-title-md {
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-size: 1.125rem;
+    line-height: 1.4;
+  }
+
+  .text-title-sm {
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+
+  .text-body-lg {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-size: 1.125rem;
+    line-height: 1.7;
+  }
+
+  .text-body-md {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .text-body-sm {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-size: 0.875rem;
+    line-height: 1.6;
+  }
+
+  .text-label-lg {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+
+  .text-label-md {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-size: 0.875rem;
+    line-height: 1.4;
+  }
+
+  .text-label-sm {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-size: 0.75rem;
+    line-height: 1.3;
+  }
+}
+
+@theme {
+  /* Primary brand colors */
+  --color-brand-black: #000000;
+  --color-brand-white: #ffffff;
+  --color-brand-gray-dark: #565656;
+  --color-brand-gray-light: #dddddd;
+  --color-brand-gray-bg: #f8f8f8;
+
+  /* Feedback colors */
+  --color-feedback-error: #dc1919;
+  --color-feedback-warning: #fcc73b;
+  --color-feedback-info: #0f4fef;
+  --color-feedback-success: #4dc14d;
+  --color-feedback-accent: #9a82db;
+  --color-feedback-accent-light: #efe9fb;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: #9ca3af;
+    --text-h: #f3f4f6;
+    --bg: #16171d;
+    --border: #2e303a;
+    --code-bg: #1f2028;
+    --accent: #c084fc;
+    --accent-bg: rgba(192, 132, 252, 0.15);
+    --accent-border: rgba(192, 132, 252, 0.5);
+    --social-bg: rgba(47, 48, 58, 0.5);
+    --shadow:
+      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
+  }
+
+  #social .button-icon {
+    filter: invert(1) brightness(2);
+  }
+}
+
+#root {
+  width: 1126px;
+  max-width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  border-inline: 1px solid var(--border);
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  background: var(--color-brand-white);
+  color: var(--color-brand-black);
+  background-image: url("../public/background.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
