@@ -1,14 +1,6 @@
 @import "tailwindcss";
 
 :root {
-  --color-primary: #0f172a;
-  --color-secondary: #334155;
-  --color-accent: #2563eb;
-  --color-background: #ffffff;
-  --color-surface: #f8fafc;
-  --color-text: #0f172a;
-  --color-text-muted: #64748b;
-
   --font-sans: "Roboto", sans-serif;
   --font-heading: "Roboto", sans-serif;
 
@@ -16,11 +8,8 @@
   --heading: system-ui, "Segoe UI", Roboto, sans-serif;
   --mono: ui-monospace, Consolas, monospace;
 
-  font: 18px/145% var(--sans);
   letter-spacing: 0.18px;
   color-scheme: light dark;
-  color: var(--text);
-  background: var(--bg);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -141,38 +130,6 @@
   --color-feedback-accent-light: #efe9fb;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
-
-  #social .button-icon {
-    filter: invert(1) brightness(2);
-  }
-}
-
-#root {
-  width: 1126px;
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
-}
-
 body {
   margin: 0;
   font-family: "Roboto", sans-serif;
@@ -182,4 +139,35 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+input[type="radio"] {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--color-brand-black);
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+}
+
+input[type="radio"]:checked::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  background-color: var(--color-brand-black);
+  border-radius: 50%;
+}
+
+input[type="radio"]:disabled {
+  border-color: var(--color-brand-gray-light);
+  cursor: not-allowed;
+}
+
+input[type="radio"]:disabled::before {
+  background-color: var(--color-brand-gray-light);
 }
