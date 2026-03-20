@@ -35,15 +35,18 @@ function ScoreTable({ answers, score, totalQuestions }: ScoreTableProps) {
         <h1 className="text-title-lg">Viktoriini tulemused</h1>
 
         <div className="flex flex-col gap-2">
-          <h2 className="text-body-lg">
+          <h2 className="text-body-lg" data-testid="final-score">
             Sinu skoor: {score} / {totalQuestions}
           </h2>
-          <p className="text-body-md">
+          <p className="text-body-md" data-testid="final-message">
             {getFinalMessage(score, totalQuestions)}
           </p>
         </div>
 
-        <table className="w-full border-collapse border border-brand-gray-light">
+        <table
+          className="w-full border-collapse border border-brand-gray-light"
+          data-testid="results-table"
+        >
           <thead>
             <tr>
               <th className="border border-brand-gray-light px-4 py-2 text-left">
@@ -59,7 +62,7 @@ function ScoreTable({ answers, score, totalQuestions }: ScoreTableProps) {
           </thead>
           <tbody>
             {answers.map((answer, index) => (
-              <tr key={index}>
+              <tr key={index} data-testid={`result-row-${index}`}>
                 <td className="border border-brand-gray-light px-4 py-2">
                   {answer.question}
                 </td>

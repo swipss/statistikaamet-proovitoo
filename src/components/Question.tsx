@@ -27,7 +27,9 @@ function Question({
   return (
     <>
       <div>
-        <h2 className="mb-2 text-body-lg">{question}</h2>
+        <h2 className="mb-2 text-body-lg" data-testid="question-text">
+          {question}
+        </h2>
 
         <div className="flex flex-col gap-1">
           {options.map((option) => (
@@ -39,6 +41,7 @@ function Question({
                 checked={selectedAnswer === option}
                 disabled={showFeedback}
                 onChange={(e) => onAnswerChange(e.target.value)}
+                data-testid={`option-${option}`}
               />
               {option}
             </label>
@@ -48,6 +51,7 @@ function Question({
 
       {!showFeedback ? (
         <button
+          data-testid={`button-Kontrolli`}
           className="font-bold border w-max px-5 py-2 border-brand-black cursor-pointer bg-brand-black text-brand-white hover:bg-brand-white hover:text-brand-black transition-all ease disabled:bg-brand-gray-light disabled:text-brand-gray-dark disabled:border-none"
           onClick={onSubmit}
           disabled={!selectedAnswer}
@@ -55,7 +59,7 @@ function Question({
           Kontrolli
         </button>
       ) : (
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-4" data-testid="feedback-message">
           <Feedback
             type={selectedAnswer === correctAnswer ? "success" : "error"}
             message={
@@ -66,6 +70,7 @@ function Question({
           />
 
           <button
+            data-testid={`button-${currentQuestionIndex === 2 ? "Lõpeta" : "Järgmine küsimus"}`}
             className="font-bold border w-max px-5 py-2 border-brand-black cursor-pointer bg-brand-black text-brand-white hover:bg-brand-white hover:text-brand-black transition-all ease"
             onClick={onNext}
           >
